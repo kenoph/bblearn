@@ -16,7 +16,7 @@ def confusion_matrix(ytrue, ypred, labels=None, normalize=True, percent=True, si
     if labels is None:
         labels = sorted(np.unique(ytrue))
 
-    cm = sk_confusion_matrix(ytrue, ypred, labels=labels)
+    cm = sk_confusion_matrix(ytrue, ypred)
 
     if normalize:
         cm = cm.astype(float) / cm.sum(axis=1)[:, np.newaxis]
@@ -28,7 +28,7 @@ def confusion_matrix(ytrue, ypred, labels=None, normalize=True, percent=True, si
     ax.xaxis.tick_top()
     ax.set_xticklabels(labels)
     ax.set_yticklabels(labels[::-1])
-    ax.set_title("Confusion Matrix", y=1.03, size="x-large", weight='bold')
+    ax.set_title("Confusion Matrix", y=1.1, size="x-large", weight='bold')
     ax.set_ylabel("True Label", weight='bold')
     ax.set_xlabel("Predicted Label", weight='bold')
 
